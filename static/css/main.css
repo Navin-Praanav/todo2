@@ -1,0 +1,211 @@
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body
+{
+    background-color: whitesmoke;
+    width: 100%;
+}
+:root
+{
+    --backcolor:wheat;
+    --bodycolor:whitesmoke;
+    --typespeed:5s;
+    --typesteps:23;
+}
+
+.container
+{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2em 0.3em 0.1em 0.3em;
+    align-items:center;
+}
+
+.input
+{
+    padding: 1.4em;
+    width: 55%;
+}
+.input h2
+{
+    padding: 2rem 0.3rem 2rem 0.3rem;
+
+}
+input
+{
+    width: 65%;
+    border: 0;
+    outline: 0;
+    margin-top: 3.5em;
+    border-bottom: 2px solid gray;
+    padding: 0.5em;
+    background: transparent;
+}
+
+input:focus
+{
+    border:none;
+    border-bottom:2px solid black ;
+}
+
+
+/* CSS */
+button {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-size: 14px;
+  font-weight: 500;
+  height: 2em;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  padding: 1px 3em;
+  margin-left: 1em;
+  text-align: center;
+  text-transform: none;
+  width: auto;
+}
+
+button:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+
+button:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+
+.buttons
+{
+    margin-top: 1rem;
+    width: 52%;
+    height: 5%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.buttons div a
+{
+    padding: 0.5em;
+    text-decoration: none;
+    background-color: bisque;
+    color: rgb(42, 40, 40);
+    margin:0 0.5em;
+}
+
+.display
+{
+    margin-top: 3rem;
+    width: 52%;
+}
+
+.display ul li
+{
+    list-style: none;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin:7px;
+}
+
+.display ul a
+{
+    text-decoration: none;
+    transform: scale(100%);
+    transition: transform 200ms ease-in-out;  
+}
+.display ul li:hover
+{
+    transform: scale(104%);
+    border-left:#3c4043;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: rgba(149, 165, 166, 0.3);
+}
+
+.first
+{
+    display: flex;
+    letter-spacing: 0.3rem;
+
+}
+
+.first h1{
+    font-size: 1.8rem;
+    width: max-content;
+    position: relative;
+}
+
+.first h1::before,.first h1::after
+{
+    content: '';
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.first h1::before
+{
+    background-color: var(--bodycolor);
+    animation:typing var(--typespeed) steps(var(--typesteps)) 1s forwards;
+}
+.first h1::after
+{
+    width: 0.2rem;
+    background-color: black;
+    animation:blink 550ms steps(var(--typesteps)) infinite,
+    blinkmove var(--typespeed) steps(var(--typesteps)) 1s forwards;
+}
+@keyframes typing
+{
+    to
+    {
+        left:100%;
+    }
+}
+@keyframes blinkmove
+{
+    to
+    {
+        left:100%;
+    }
+}
+@keyframes blink
+{
+    to
+    {
+        background-color: transparent;
+    }
+}
+
+footer
+{
+    display: flex;
+    justify-content: center;
+}

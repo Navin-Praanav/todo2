@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <div class="first">
+            <h1>What do you want to do today?</h1>
+            </div>
+             <form action="{{ url_for('add_todo') }}" method="Post" role="form">
+                <div class="forms_input">
+                    <input name="add-todo" type="text" placeholder="Enter todo">
+                    <button type="submit">ADD</button>
+                </div>
+             </form>
+        </div>
+
+        <div class="buttons">
+            <div>
+                <a href="{{ url_for('delete_all') }}" class="delete">Delete All</a>
+            </div>
+            <div>
+                <a href="{{ url_for('delete_completed') }}" class="delete_all">Delete Completed</a>
+            </div>            
+        </div>
+        <div class="display">
+            <ul class="ul-dis">
+                {% for todo in todos %}
+                <a href="{{ url_for('comp', oid=todo._id )}}">
+                    <li class="lst {% if todo.complete %} todo-completed {% endif %}">
+                        {{ todo.text }}
+                    </li>
+                </a>
+                {% endfor %}
+                {% if checks %}
+                    <li class="nothing">No task </li>
+                {% endif%}
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div>
+            Copyright &copy; 2022 <strong>ToDo App</strong>
+        </div>
+    </footer>
+</body>
+</html>
